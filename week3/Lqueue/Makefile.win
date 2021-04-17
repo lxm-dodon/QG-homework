@@ -1,0 +1,31 @@
+# Project: lqueue
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = lqueue_main.o lqueue.o
+LINKOBJ  = lqueue_main.o lqueue.o
+LIBS     = -L"H:/Dev-Cpp/MinGW64/lib" -L"H:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"H:/Dev-Cpp/MinGW64/include" -I"H:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"H:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"H:/Dev-Cpp/MinGW64/include" -I"H:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"H:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"H:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = lqueue.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+lqueue_main.o: lqueue_main.c
+	$(CC) -c lqueue_main.c -o lqueue_main.o $(CFLAGS)
+
+lqueue.o: lqueue.c
+	$(CC) -c lqueue.c -o lqueue.o $(CFLAGS)
